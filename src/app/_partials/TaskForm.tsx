@@ -26,27 +26,34 @@ export function TaskForm() {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 mb-8">
+    <div className="bg-white rounded-2xl shadow-xl border-2 border-red-200 p-8 mb-8">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-          <span className="text-white text-lg">✨</span>
+        <div className="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg">
+          <span className="text-white text-lg">📋</span>
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Create New Task</h2>
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800">Create Task</h2>
+          {/* <p className="text-red-600 text-sm font-medium">Safety • Health • Environment</p> */}
+        </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
-          <Input placeholder="What needs to be done?" value={title} onChange={(e) => setTitle(e.target.value)} className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 rounded-xl" />
+          <label className="block text-sm font-semibold text-gray-700 mb-2">Task Description</label>
+          <Input placeholder="Enter SHE task details..." value={title} onChange={(e) => setTitle(e.target.value)} className="h-12 text-lg border-2 border-gray-300 focus:border-red-500 rounded-xl" />
         </div>
         <div className="flex-1">
-          <Input placeholder="Who's responsible?" value={assignee} onChange={(e) => setAssignee(e.target.value)} className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 rounded-xl" />
+          <label className="block text-sm font-semibold text-gray-700 mb-2">Responsible Person</label>
+          <Input placeholder="Assign to team member..." value={assignee} onChange={(e) => setAssignee(e.target.value)} className="h-12 text-lg border-2 border-gray-300 focus:border-red-500 rounded-xl" />
         </div>
-        <Button
-          onClick={handleSubmit}
-          className="h-12 px-8 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
-        >
-          <span className="mr-2">➕</span>
-          Add Task
-        </Button>
+        <div className="flex items-end">
+          <Button
+            onClick={handleSubmit}
+            className="h-12 px-8 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+          >
+            <span className="mr-2">➕</span>
+            Add Task
+          </Button>
+        </div>
       </div>
     </div>
   );
